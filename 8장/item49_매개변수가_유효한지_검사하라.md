@@ -61,7 +61,7 @@ Exception in thread "main" java.lang.NullPointerException: 전략
 
 #### assert(단언문) 을 통한 매개변수 유효성 검증
 - 공개되지 않은 메서드, 즉 public 이 아닌 메서드인 경우 메서드가 호출되는 상황을 통제하기 위해 사용할 수 있다.
-- 실패 시 AssertionError 가 발생되며, 런타임에 아무런 효과나 성능 저하도 없다.  (단, 명령줄에서 -ea 혹은 00enableassertions 플래그 설정 시 런타임에 영향을 준다.)
+- 실패 시 AssertionError 가 발생되며, 런타임에 아무런 효과나 성능 저하도 없다.  (단, 명령줄에서 -ea 혹은 --enableassertions 플래그 설정 시 런타임에 영향을 준다.)
 - VS Code 에서 설정 시 launch.json 에 아래와 같이 추가
 ``` java
 {

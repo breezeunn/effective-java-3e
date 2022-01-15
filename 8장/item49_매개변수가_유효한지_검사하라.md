@@ -5,6 +5,8 @@ item49.매개변수가 유효한지 검사하라
 2. 제약을 문서화하고 메서드 코드 시작 부분에서 명시적으로 검사해야 한다.
 
 
+#### 메서드나 생성자를 만들면.. 대부분은 입력 매개변수의 값이 특정 조건을 만족하며 들어오기를 바라고(가정하고) 만들지 않을까?
+
 #### 매개변수 검사를 제대로 하지 못하면 생길 수 있는 문제
 1. 메서드가 수행되는 중간에 모호한 예외를 던지며 실패할 수 있다.   
 2. 메서드가 잘 수행되지만 잘못된 결과를 반환할 수 있다.   
@@ -31,6 +33,13 @@ item49.매개변수가 유효한지 검사하라
       // 계산 수행 ..
   }
 
+  // m이 null 이라면 NullPointerException 을 던지지만 설명을 기술하지 않은 것은 이 설명이 BigInteger 클래스 수준에서 기술되어 있기 때문이다.
+
+/* BigInteger 클래스 내 주석
+  * <p>All methods and constructors in this class throw
+ * {@code NullPointerException} when passed
+ * a null object reference for any input parameter.
+ */
 ```
 
 #### Objects.requireNonNull

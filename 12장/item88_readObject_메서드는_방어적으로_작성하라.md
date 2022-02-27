@@ -55,8 +55,7 @@ class BogusPeriod {
 }
 ```
 ---
-결국, readObject 에서도 인수가 유효한지 검사해야 하고, 필요하다면 매개변수를 방어적으로 복사해야 한다.  
-이 문제를 고치려면 Period 의 readObject 메서드가 defaultReadObject 를 호출한 다음 역직렬화된 객체가 유효한지 검사해야 한다.   
+결국, readObject 메서드에서 defaultReadObject 를 호출한 다음 역직렬화된 객체가 유효한지 검사해야 하고, 필요하다면 매개변수를 방어적으로 복사해야 한다.  
 이 유효성 검사에 실패하면 InvalidObjectException 을 던지게 하여 잘못된 역직렬화가 일어나는 것을 막을 수 있다.
 ``` java
 private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {

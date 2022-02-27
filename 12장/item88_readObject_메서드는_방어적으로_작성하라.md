@@ -33,7 +33,7 @@ Period 객체의 물리적 표현이 논리적 표현과 부합하므로 기본 
 
 > readObject 메서드가 실질적으로 또 다른 public 생성자이기 때문이다.  
 
-readObject 로 바이트 스트림을 받는데, 이 바이트 스트림이 정상적인 객체의 바이스 스트림이라고 기대하지만 실제 불변식을 깨뜨릴 의도로 임의 생성되었을수도 있다.  
+readObject 로 바이트 스트림을 받는데, 이 바이트 스트림이 정상적인 객체의 바이트 스트림이라고 기대하지만 실제 불변식을 깨뜨릴 의도로 임의 생성되었을수도 있다.  
 ``` java
 class BogusPeriod {
     private static final byte[] serializedForm =  {
@@ -133,6 +133,13 @@ private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundEx
         throw new InvalidObjectException(start + "가 " + end + "보다 늦다.");
 }
 ```
+
+결과
+<pre>
+Sun Feb 27 11:00:49 KST 2022 - Sun Feb 27 11:00:49 KST 2022
+Sun Feb 27 11:00:49 KST 2022 - Sun Feb 27 11:00:49 KST 2022
+</pre>
+
 --- 
 ### 기본 readObject 메서드를 써도 좋을지 판단하는 방법
 transient 필드를 제외한 모든 필드의 값을 매개변수로 받아 유효성 검사 없이 필드에 대입하는 public 생성자를 추가해도 괜찮은가?  
